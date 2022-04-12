@@ -1,0 +1,13 @@
+{
+	"name": "FileServer1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "\\\\sthale01.redmond.corp.microsoft.com\\c$",
+			"userId": "redmond\\sthale",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDk5M0U0NTY0LUE2QjAtNDI5Ri05RjE0LTNDNkI0QkMzMTgxRF85ZWIwODcxMi1kY2ExLTRmMjItODMyNy03MGVkMjIwYTRjMmMiDQp9"
+		}
+	}
+}
