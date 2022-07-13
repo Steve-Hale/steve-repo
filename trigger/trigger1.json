@@ -8,7 +8,7 @@
 		"typeProperties": {
 			"blobPathBeginsWith": "/abc/blobs/",
 			"ignoreEmptyBlobs": true,
-			"scope": "/subscriptions/xxx/resourceGroups/yyy/providers/Microsoft.Storage/storageAccounts/sthaleVM/a",
+			"scope": "/subscriptions/xxx/resourceGroups/yyy/providers/Microsoft.Storage/storageAccounts/sthalevm/a",
 			"events": [
 				"Microsoft.Storage.BlobCreated"
 			]
