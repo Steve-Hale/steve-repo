@@ -4,14 +4,14 @@
 		"annotations": [],
 		"runtimeState": "Stopped",
 		"pipelines": [],
-		"type": "ScheduleTrigger",
+		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"recurrence": {
-				"frequency": "Minute",
-				"interval": 15,
-				"startTime": "2022-07-13T17:50:00Z",
-				"timeZone": "UTC"
-			}
+			"blobPathBeginsWith": "/abc/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/xxx/resourceGroups/yyy/providers/Microsoft.Storage/storageAccounts/sthalevm/a",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
 		}
 	}
 }
