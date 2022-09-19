@@ -58,7 +58,10 @@
 						"defaultValue": "myValue2"
 					}
 				},
-				"annotations": [],
+				"annotations": [
+					"pipeline1 annotation1",
+					"pipeline1 annotation1"
+				],
 				"lastPublishTime": "2022-04-06T22:02:51Z"
 			},
 			"dependsOn": []
@@ -152,7 +155,6 @@
 						"frequency": "Minute",
 						"interval": 2,
 						"startTime": "2022-07-13T16:58:00Z",
-						"endTime": "2022-07-14T16:58:00Z",
 						"timeZone": "UTC"
 					}
 				}
@@ -343,7 +345,10 @@
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"annotations": [],
+				"annotations": [
+					"TransformMovies annotation1",
+					"TransformMovies my really long annotation that goes on forever and nobody can believe anyone would write this much just for a single annotation."
+				],
 				"lastPublishTime": "2022-04-05T19:23:52Z"
 			},
 			"dependsOn": [
