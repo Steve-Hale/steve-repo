@@ -27,11 +27,11 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
 		},
-		"XLSXBlobCreated_properties_typeProperties_scope": {
+		"XLSBlobCreated_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
 		},
-		"xlsBlobCreated_properties_typeProperties_scope": {
+		"XLSXBlobCreated_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
 		},
@@ -77,11 +77,11 @@
 					"CSVBlobCreated_properties_typeProperties_scope": {
 						"value": "[parameters('CSVBlobCreated_properties_typeProperties_scope')]"
 					},
+					"XLSBlobCreated_properties_typeProperties_scope": {
+						"value": "[parameters('XLSBlobCreated_properties_typeProperties_scope')]"
+					},
 					"XLSXBlobCreated_properties_typeProperties_scope": {
 						"value": "[parameters('XLSXBlobCreated_properties_typeProperties_scope')]"
-					},
-					"xlsBlobCreated_properties_typeProperties_scope": {
-						"value": "[parameters('xlsBlobCreated_properties_typeProperties_scope')]"
 					}
 				}
 			},
