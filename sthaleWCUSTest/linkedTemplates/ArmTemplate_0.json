@@ -22,18 +22,6 @@
 		"FileServer1_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "redmond\\sthale"
-		},
-		"xlsBlobCreated_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
-		},
-		"XLSXBlobCreated_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
-		},
-		"CSVBlobCreated_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
 		}
 	},
 	"variables": {
@@ -97,6 +85,26 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/trigger3')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 15,
+						"startTime": "2022-10-31T21:38:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/AzureintegrationRuntime2')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
@@ -127,69 +135,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/xlsBlobCreated')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/samplecontainer/blobs/",
-					"blobPathEndsWith": ".xls",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('xlsBlobCreated_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/XLSXBlobCreated')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/samplecontainer/blobs/",
-					"blobPathEndsWith": ".xlsx",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('XLSXBlobCreated_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CSVBlobCreated')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/samplecontainer/blobs/",
-					"blobPathEndsWith": ".cvs",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('CSVBlobCreated_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -214,7 +159,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -230,6 +175,7 @@
 						"frequency": "Minute",
 						"interval": 2,
 						"startTime": "2022-07-13T16:58:00Z",
+						"endTime": "2022-07-14T16:58:00Z",
 						"timeZone": "UTC"
 					}
 				}
