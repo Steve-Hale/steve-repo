@@ -1,0 +1,47 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "jsonsample.json",
+				"container": "sample-data"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "integer"
+				},
+				"dimension": {
+					"type": "string"
+				},
+				"teams": {
+					"type": "string"
+				},
+				"td": {
+					"type": "integer"
+				},
+				"lasttd": {
+					"type": "string"
+				},
+				"time_out_used": {
+					"type": "string"
+				},
+				"passing_yd": {
+					"type": "number"
+				},
+				"rusing": {
+					"type": "number"
+				}
+			}
+		}
+	}
+}
