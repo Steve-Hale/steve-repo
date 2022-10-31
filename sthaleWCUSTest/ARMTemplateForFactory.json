@@ -22,6 +22,10 @@
 		"FileServer1_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "redmond\\sthale"
+		},
+		"xlsBlobCreated_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
 		}
 	},
 	"variables": {
@@ -434,6 +438,27 @@
 						"startTime": "2022-10-31T21:38:00Z",
 						"timeZone": "UTC"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/xlsBlobCreated')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/samplecontainer/blobs/",
+					"blobPathEndsWith": ".xls",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('xlsBlobCreated_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
 				}
 			},
 			"dependsOn": []
