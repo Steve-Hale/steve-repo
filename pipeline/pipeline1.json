@@ -20,6 +20,9 @@
 			"myName2": {
 				"type": "string",
 				"defaultValue": "myValue2"
+			},
+			"pwd": {
+				"type": "securestring"
 			}
 		},
 		"annotations": [
