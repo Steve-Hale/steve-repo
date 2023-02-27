@@ -22,7 +22,11 @@
 				"defaultValue": "myValue2"
 			},
 			"pwd": {
-				"type": "securestring"
+				"type": "securestring",
+				"defaultValue": {
+					"type": "SecureString",
+					"value": "**********"
+				}
 			}
 		},
 		"annotations": [
