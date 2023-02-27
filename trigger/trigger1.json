@@ -11,7 +11,6 @@
 				},
 				"parameters": {
 					"myName": "abc",
-					"myName2": "123",
 					"pwd": {
 						"type": "SecureString",
 						"value": "**********"
