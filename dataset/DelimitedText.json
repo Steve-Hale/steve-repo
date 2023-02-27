@@ -5,6 +5,15 @@
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"aaa": {
+				"type": "securestring",
+				"defaultValue": {
+					"type": "SecureString",
+					"value": "**********"
+				}
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
