@@ -6,8 +6,12 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"aaa": {
-				"type": "securestring"
+			"param1": {
+				"type": "securestring",
+				"defaultValue": {
+					"type": "SecureString",
+					"value": "**********"
+				}
 			}
 		},
 		"annotations": [],
