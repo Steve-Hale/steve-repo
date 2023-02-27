@@ -34,6 +34,18 @@
 		"XLSXBlobCreated_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
+		},
+		"trigger1_properties_pipeline1_parameters_myName": {
+			"type": "string",
+			"defaultValue": "abc"
+		},
+		"trigger1_properties_pipeline1_parameters_myName2": {
+			"type": "string",
+			"defaultValue": "123"
+		},
+		"trigger1_properties_pipeline1_parameters_pwd": {
+			"type": "string",
+			"defaultValue": "**********"
 		}
 	},
 	"variables": {
@@ -464,6 +476,43 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipeline1",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"myName": "[parameters('trigger1_properties_pipeline1_parameters_myName')]",
+							"myName2": "[parameters('trigger1_properties_pipeline1_parameters_myName2')]",
+							"pwd": {
+								"type": "SecureString",
+								"value": "[parameters('trigger1_properties_pipeline1_parameters_pwd')]"
+							}
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 15,
+						"startTime": "2023-02-27T23:04:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipeline1')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureintegrationRuntime2')]",

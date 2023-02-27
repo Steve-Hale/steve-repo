@@ -25,6 +25,15 @@
 		},
 		"XLSXBlobCreated_properties_typeProperties_scope": {
 			"value": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
+		},
+		"trigger1_properties_pipeline1_parameters_myName": {
+			"value": "abc"
+		},
+		"trigger1_properties_pipeline1_parameters_myName2": {
+			"value": "123"
+		},
+		"trigger1_properties_pipeline1_parameters_pwd": {
+			"value": "**********"
 		}
 	}
 }

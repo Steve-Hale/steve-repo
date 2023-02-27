@@ -35,6 +35,18 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
 		},
+		"trigger1_properties_pipeline1_parameters_myName": {
+			"type": "string",
+			"defaultValue": "abc"
+		},
+		"trigger1_properties_pipeline1_parameters_myName2": {
+			"type": "string",
+			"defaultValue": "123"
+		},
+		"trigger1_properties_pipeline1_parameters_pwd": {
+			"type": "string",
+			"defaultValue": "**********"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -82,6 +94,15 @@
 					},
 					"XLSXBlobCreated_properties_typeProperties_scope": {
 						"value": "[parameters('XLSXBlobCreated_properties_typeProperties_scope')]"
+					},
+					"trigger1_properties_pipeline1_parameters_myName": {
+						"value": "[parameters('trigger1_properties_pipeline1_parameters_myName')]"
+					},
+					"trigger1_properties_pipeline1_parameters_myName2": {
+						"value": "[parameters('trigger1_properties_pipeline1_parameters_myName2')]"
+					},
+					"trigger1_properties_pipeline1_parameters_pwd": {
+						"value": "[parameters('trigger1_properties_pipeline1_parameters_pwd')]"
 					}
 				}
 			},
