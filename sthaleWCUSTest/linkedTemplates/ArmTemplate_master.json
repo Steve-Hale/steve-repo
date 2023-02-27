@@ -39,10 +39,6 @@
 			"type": "string",
 			"defaultValue": "abc"
 		},
-		"trigger1_properties_pipeline1_parameters_myName2": {
-			"type": "string",
-			"defaultValue": "123"
-		},
 		"trigger1_properties_pipeline1_parameters_pwd": {
 			"type": "string",
 			"defaultValue": "**********"
@@ -51,13 +47,9 @@
 			"type": "string",
 			"defaultValue": "abc"
 		},
-		"trigger2_properties_pipeline1_parameters_myName2": {
-			"type": "string",
-			"defaultValue": "123"
-		},
 		"trigger2_properties_pipeline1_parameters_pwd": {
 			"type": "string",
-			"defaultValue": "xxx"
+			"defaultValue": "**********"
 		},
 		"containerUri": {
 			"type": "string",
@@ -110,17 +102,11 @@
 					"trigger1_properties_pipeline1_parameters_myName": {
 						"value": "[parameters('trigger1_properties_pipeline1_parameters_myName')]"
 					},
-					"trigger1_properties_pipeline1_parameters_myName2": {
-						"value": "[parameters('trigger1_properties_pipeline1_parameters_myName2')]"
-					},
 					"trigger1_properties_pipeline1_parameters_pwd": {
 						"value": "[parameters('trigger1_properties_pipeline1_parameters_pwd')]"
 					},
 					"trigger2_properties_pipeline1_parameters_myName": {
 						"value": "[parameters('trigger2_properties_pipeline1_parameters_myName')]"
-					},
-					"trigger2_properties_pipeline1_parameters_myName2": {
-						"value": "[parameters('trigger2_properties_pipeline1_parameters_myName2')]"
 					},
 					"trigger2_properties_pipeline1_parameters_pwd": {
 						"value": "[parameters('trigger2_properties_pipeline1_parameters_pwd')]"

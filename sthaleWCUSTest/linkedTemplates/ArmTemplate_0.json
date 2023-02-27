@@ -39,10 +39,6 @@
 			"type": "string",
 			"defaultValue": "abc"
 		},
-		"trigger1_properties_pipeline1_parameters_myName2": {
-			"type": "string",
-			"defaultValue": "123"
-		},
 		"trigger1_properties_pipeline1_parameters_pwd": {
 			"type": "string",
 			"defaultValue": "**********"
@@ -51,13 +47,9 @@
 			"type": "string",
 			"defaultValue": "abc"
 		},
-		"trigger2_properties_pipeline1_parameters_myName2": {
-			"type": "string",
-			"defaultValue": "123"
-		},
 		"trigger2_properties_pipeline1_parameters_pwd": {
 			"type": "string",
-			"defaultValue": "xxx"
+			"defaultValue": "**********"
 		}
 	},
 	"variables": {
@@ -88,10 +80,6 @@
 					"myName": {
 						"type": "string",
 						"defaultValue": "myValue"
-					},
-					"myName2": {
-						"type": "string",
-						"defaultValue": "myValue2"
 					},
 					"pwd": {
 						"type": "securestring"
@@ -250,7 +238,6 @@
 						},
 						"parameters": {
 							"myName": "[parameters('trigger1_properties_pipeline1_parameters_myName')]",
-							"myName2": "[parameters('trigger1_properties_pipeline1_parameters_myName2')]",
 							"pwd": {
 								"type": "SecureString",
 								"value": "[parameters('trigger1_properties_pipeline1_parameters_pwd')]"
@@ -287,7 +274,6 @@
 						},
 						"parameters": {
 							"myName": "[parameters('trigger2_properties_pipeline1_parameters_myName')]",
-							"myName2": "[parameters('trigger2_properties_pipeline1_parameters_myName2')]",
 							"pwd": {
 								"type": "SecureString",
 								"value": "[parameters('trigger2_properties_pipeline1_parameters_pwd')]"

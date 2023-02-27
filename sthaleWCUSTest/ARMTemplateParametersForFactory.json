@@ -29,20 +29,14 @@
 		"trigger1_properties_pipeline1_parameters_myName": {
 			"value": "abc"
 		},
-		"trigger1_properties_pipeline1_parameters_myName2": {
-			"value": "123"
-		},
 		"trigger1_properties_pipeline1_parameters_pwd": {
 			"value": "**********"
 		},
 		"trigger2_properties_pipeline1_parameters_myName": {
 			"value": "abc"
 		},
-		"trigger2_properties_pipeline1_parameters_myName2": {
-			"value": "123"
-		},
 		"trigger2_properties_pipeline1_parameters_pwd": {
-			"value": "xxx"
+			"value": "**********"
 		}
 	}
 }
