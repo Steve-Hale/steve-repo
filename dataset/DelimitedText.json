@@ -7,11 +7,7 @@
 		},
 		"parameters": {
 			"param1": {
-				"type": "securestring",
-				"defaultValue": {
-					"type": "SecureString",
-					"value": "**********"
-				}
+				"type": "securestring"
 			}
 		},
 		"annotations": [],
