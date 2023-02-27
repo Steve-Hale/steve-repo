@@ -47,6 +47,18 @@
 			"type": "string",
 			"defaultValue": "**********"
 		},
+		"trigger2_properties_pipeline1_parameters_myName": {
+			"type": "string",
+			"defaultValue": "abc"
+		},
+		"trigger2_properties_pipeline1_parameters_myName2": {
+			"type": "string",
+			"defaultValue": "123"
+		},
+		"trigger2_properties_pipeline1_parameters_pwd": {
+			"type": "string",
+			"defaultValue": "xxx"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -103,6 +115,15 @@
 					},
 					"trigger1_properties_pipeline1_parameters_pwd": {
 						"value": "[parameters('trigger1_properties_pipeline1_parameters_pwd')]"
+					},
+					"trigger2_properties_pipeline1_parameters_myName": {
+						"value": "[parameters('trigger2_properties_pipeline1_parameters_myName')]"
+					},
+					"trigger2_properties_pipeline1_parameters_myName2": {
+						"value": "[parameters('trigger2_properties_pipeline1_parameters_myName2')]"
+					},
+					"trigger2_properties_pipeline1_parameters_pwd": {
+						"value": "[parameters('trigger2_properties_pipeline1_parameters_pwd')]"
 					}
 				}
 			},

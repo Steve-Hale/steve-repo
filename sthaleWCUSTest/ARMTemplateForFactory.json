@@ -46,6 +46,18 @@
 		"trigger1_properties_pipeline1_parameters_pwd": {
 			"type": "string",
 			"defaultValue": "**********"
+		},
+		"trigger2_properties_pipeline1_parameters_myName": {
+			"type": "string",
+			"defaultValue": "abc"
+		},
+		"trigger2_properties_pipeline1_parameters_myName2": {
+			"type": "string",
+			"defaultValue": "123"
+		},
+		"trigger2_properties_pipeline1_parameters_pwd": {
+			"type": "string",
+			"defaultValue": "xxx"
 		}
 	},
 	"variables": {
@@ -602,6 +614,43 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DelimitedText')]",
 				"[concat(variables('factoryId'), '/datasets/MoviesSink')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger2')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "pipeline1",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"myName": "[parameters('trigger2_properties_pipeline1_parameters_myName')]",
+							"myName2": "[parameters('trigger2_properties_pipeline1_parameters_myName2')]",
+							"pwd": {
+								"type": "SecureString",
+								"value": "[parameters('trigger2_properties_pipeline1_parameters_pwd')]"
+							}
+						}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 15,
+						"startTime": "2023-02-27T23:12:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/pipeline1')]"
 			]
 		}
 	]
