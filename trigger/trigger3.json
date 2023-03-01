@@ -1,0 +1,31 @@
+{
+	"name": "trigger3",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline1",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"myName": "steve",
+					"pwd": {
+						"type": "SecureString",
+						"value": "**********"
+					}
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2023-03-01T00:17:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}
