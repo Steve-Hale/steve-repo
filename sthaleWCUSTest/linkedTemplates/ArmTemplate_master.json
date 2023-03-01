@@ -57,7 +57,7 @@
 		},
 		"trigger3_properties_pipeline1_parameters_pwd": {
 			"type": "string",
-			"defaultValue": "qwd"
+			"defaultValue": "**********"
 		},
 		"containerUri": {
 			"type": "string",
