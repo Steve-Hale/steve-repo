@@ -348,11 +348,6 @@
 					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
-				"parameters": {
-					"param1": {
-						"type": "securestring"
-					}
-				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
@@ -676,12 +671,7 @@
 								"type": "DataFlowReference",
 								"parameters": {},
 								"datasetParameters": {
-									"MoviesDB": {
-										"param1": {
-											"type": "SecureString",
-											"value": "**********"
-										}
-									},
+									"MoviesDB": {},
 									"Sink": {}
 								}
 							},
