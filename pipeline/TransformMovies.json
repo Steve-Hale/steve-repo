@@ -17,15 +17,7 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "TransformMovies",
-						"type": "DataFlowReference",
-						"datasetParameters": {
-							"MoviesDB": {
-								"param1": {
-									"type": "SecureString",
-									"value": "**********"
-								}
-							}
-						}
+						"type": "DataFlowReference"
 					},
 					"integrationRuntime": {
 						"referenceName": "AzureintegrationRuntime2",
