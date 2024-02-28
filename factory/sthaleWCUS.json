@@ -1,0 +1,9 @@
+{
+	"name": "sthaleWCUS",
+	"location": "westcentralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "813a92cd-3ff9-4b53-99bf-e9198796f2c4",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+	}
+}

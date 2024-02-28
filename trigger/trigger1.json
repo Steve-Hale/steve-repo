@@ -6,15 +6,8 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pipeline1",
+					"referenceName": "pipeline120Activities_copy1",
 					"type": "PipelineReference"
-				},
-				"parameters": {
-					"myName": "abc",
-					"pwd": {
-						"type": "SecureString",
-						"value": "**********"
-					}
 				}
 			}
 		],
@@ -23,8 +16,8 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 15,
-				"startTime": "2023-02-27T23:04:00Z",
-				"timeZone": "UTC"
+				"startTime": "2023-11-02T13:22:00",
+				"timeZone": "Pacific Standard Time"
 			}
 		}
 	}
