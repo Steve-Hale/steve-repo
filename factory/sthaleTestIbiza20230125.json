@@ -1,0 +1,9 @@
+{
+	"name": "sthaleTestIbiza20230125",
+	"location": "switzerlandwest",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4d44965e-6cb0-47e8-aef1-bdcafb665bd3",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+	}
+}
