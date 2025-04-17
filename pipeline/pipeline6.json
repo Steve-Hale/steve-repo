@@ -1,0 +1,56 @@
+{
+	"name": "pipeline6",
+	"properties": {
+		"activities": [
+			{
+				"name": "Office 365 Outlook1",
+				"type": "Office365Outlook",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "sthale@microsoft.com",
+							"Subject": "Test",
+							"Body": "<p>utcnow()</p>\n<p>@{json('{\"bar\" : \"baz\"}')}</p>\n<p>@{utcNow()}</p>\n<p><span style=\"background-color: rgb(251,160,38)\">This is a test</span></p>",
+							"Sensitivity": "",
+							"Importance": "Normal"
+						}
+					},
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			},
+			{
+				"name": "Office 365 Outlook2",
+				"type": "Office365Outlook",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "sthale@microsoft.com",
+							"Subject": "lksjdlfksl",
+							"Body": "<p>S-@{pipeline().Pipeline}abcdef1234-S0E-abcdef1234-E</p>\n<p><br></p>",
+							"Sensitivity": "",
+							"Importance": "Normal"
+						}
+					},
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-09-12T00:14:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

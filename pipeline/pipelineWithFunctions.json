@@ -1,0 +1,48 @@
+{
+	"name": "pipelineWithFunctions",
+	"properties": {
+		"activities": [
+			{
+				"name": "Office 365 Initialize Process",
+				"description": "Initialize process",
+				"type": "Office365Outlook",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "@pipeline().parameters.DefaultEmail",
+							"Subject": "@pipeline().parameters.DefaultSubject",
+							"Body": "<ul>\n  <li>@{pipeline().parameters.DefaultEmail}</li>\n  <li>@{pipeline().parameters.DefaultSubject}</li>\n</ul>\n<p>utcnow()</p>\n<p>@{concat(pipeline().DataFactory, pipeline().Pipeline)}</p>\n<p>S-abcde@{concat('The time is ', utcnow())}f1234-S3E-abcdef1234-E</p>\n<p><br></p>\n<p><br></p>\n<p></p>\n<p><br></p>",
+							"From": "@pipeline().parameters.DefaultEmail",
+							"Cc": "@pipeline().parameters.DefaultEmail",
+							"Bcc": "@pipeline().parameters.DefaultEmail",
+							"Sensitivity": "",
+							"ReplyTo": "@pipeline().parameters.DefaultEmail",
+							"Importance": "High"
+						}
+					},
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"DefaultEmail": {
+				"type": "string",
+				"defaultValue": "sthale@microsoft.com"
+			},
+			"DefaultSubject": {
+				"type": "string",
+				"defaultValue": "In case you actually care"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-08T15:59:03Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

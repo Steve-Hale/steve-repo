@@ -1,0 +1,190 @@
+{
+	"name": "pipelineSeanReproRunFail_copy1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set v_range",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "v_range",
+					"value": {
+						"value": "@range(1,10)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "ForEach Item in v_rnage",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Set v_range",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('v_range')",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "If A",
+							"type": "IfCondition",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@equals(mod(item(),2),0)",
+									"type": "Expression"
+								},
+								"ifTrueActivities": [
+									{
+										"name": "Fail A",
+										"type": "Fail",
+										"dependsOn": [],
+										"userProperties": [],
+										"typeProperties": {
+											"message": {
+												"value": "@concat(string(item()), ' is an even number!')",
+												"type": "Expression"
+											},
+											"errorCode": "369"
+										}
+									},
+									{
+										"name": "Set v_index A",
+										"type": "SetVariable",
+										"dependsOn": [
+											{
+												"activity": "Fail A",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "v_index",
+											"value": {
+												"value": "@item()",
+												"type": "Expression"
+											}
+										}
+									}
+								]
+							}
+						},
+						{
+							"name": "Set v_doNotRun",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "If B",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "v_donotrun",
+								"value": "I shouldn't run"
+							}
+						},
+						{
+							"name": "If B",
+							"type": "IfCondition",
+							"dependsOn": [
+								{
+									"activity": "If A",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@equals(mod(item(),2),0)",
+									"type": "Expression"
+								},
+								"ifTrueActivities": [
+									{
+										"name": "Fail B",
+										"type": "Fail",
+										"dependsOn": [],
+										"userProperties": [],
+										"typeProperties": {
+											"message": {
+												"value": "@concat(string(item()), ' is an even number!')",
+												"type": "Expression"
+											},
+											"errorCode": "369"
+										}
+									},
+									{
+										"name": "Set v_index B",
+										"type": "SetVariable",
+										"dependsOn": [
+											{
+												"activity": "Fail B",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "v_index",
+											"value": {
+												"value": "@item()",
+												"type": "Expression"
+											}
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"v_range": {
+				"type": "Array"
+			},
+			"v_index": {
+				"type": "Integer"
+			},
+			"v_donotrun": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-10-20T20:38:07Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

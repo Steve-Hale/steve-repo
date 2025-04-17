@@ -1,9 +1,9 @@
 {
-	"name": "pipeline2",
+	"name": "pipeline3",
 	"properties": {
 		"activities": [
 			{
-				"name": "Execute Pipeline1",
+				"name": "Execute Pipeline2",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"policy": {
@@ -12,7 +12,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"pipeline": {
-						"referenceName": "pipelineLookupWaitForeach",
+						"referenceName": "pipeline2",
 						"type": "PipelineReference"
 					},
 					"waitOnCompletion": true
@@ -20,7 +20,7 @@
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2023-07-03T23:26:15Z"
+		"lastPublishTime": "2022-07-29T22:42:51Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

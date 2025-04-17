@@ -1,20 +1,13 @@
 {
-	"name": "trigger2",
+	"name": "newtrigger",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pipelineLookupWaitForeach",
+					"referenceName": "pipelineFailAndWait",
 					"type": "PipelineReference"
-				},
-				"parameters": {
-					"pwd": {
-						"type": "SecureString",
-						"value": "**********"
-					},
-					"notapwd": "zzz"
 				}
 			}
 		],
@@ -23,7 +16,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 15,
-				"startTime": "2023-02-27T21:07:00Z",
+				"startTime": "2023-02-27T21:58:00Z",
 				"timeZone": "UTC"
 			}
 		}

@@ -1,0 +1,62 @@
+{
+	"name": "pipelineWithEmail",
+	"properties": {
+		"activities": [
+			{
+				"name": "Office 365 Outlook1",
+				"description": "Send email to everyone",
+				"type": "Office365Outlook",
+				"dependsOn": [],
+				"userProperties": [
+					{
+						"name": "Prop1",
+						"value": "Value1"
+					}
+				],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "sthale@microsoft.com",
+							"Subject": "My subject",
+							"Body": "<p><br></p>\n<figure><img src=\"https://www.theproscloset.com/cdn/shop/files/BRD33208_PH_1_3000x2000.jpg?v=1692890859\" height=\"123b\" width=\"abcd\"/></figure>\n<p><br></p>\n<p><em>Italics</em></p>\n<p><em></em><em>@{concat(pipeline().DataFactory,pipeline().Pipeline,pipeline().RunId)}</em><em></em></p>\n<p><br></p>",
+							"Sensitivity": "",
+							"Importance": "Normal"
+						}
+					},
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			},
+			{
+				"name": "Office 365 Outlook2",
+				"type": "Office365Outlook",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "sthale@microsoft.com",
+							"Subject": "Nothing",
+							"Body": "<p>{</p>\n<p>&nbsp;&nbsp;\"code\": \"BadRequest\",</p>\n<p>&nbsp;&nbsp;\"message\": null,</p>\n<p>&nbsp;&nbsp;\"target\": \"pipeline//runid/f8b0cb60-44da-457a-87bd-f06d09d5eff2\",</p>\n<p>&nbsp;&nbsp;\"details\": null,</p>\n<p>&nbsp;&nbsp;\"error\": null</p>\n<p>}</p>",
+							"Sensitivity": "",
+							"Importance": "Normal"
+						}
+					},
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-09-01T22:35:41Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

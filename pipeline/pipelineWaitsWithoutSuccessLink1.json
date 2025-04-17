@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "pipelineWaitsWithoutSuccessLink1",
 	"properties": {
 		"activities": [
 			{
@@ -70,7 +70,7 @@
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2024-07-10T21:21:19Z"
+		"lastPublishTime": "2023-08-15T19:32:02Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

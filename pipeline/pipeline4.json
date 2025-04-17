@@ -1,0 +1,186 @@
+{
+	"name": "pipeline4",
+	"properties": {
+		"activities": [
+			{
+				"name": "Office 365 Initialize Process",
+				"description": "Initialize process",
+				"type": "Office365Outlook",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "@pipeline().parameters.DefaultEmail",
+							"Subject": "@pipeline().parameters.DefaultSubject",
+							"Body": "<ul>\n  <li>@{pipeline().parameters.DefaultEmail}</li>\n  <li>@{pipeline().parameters.DefaultSubject}</li>\n</ul>",
+							"From": "@pipeline().parameters.DefaultEmail",
+							"Cc": "@pipeline().parameters.DefaultEmail",
+							"Bcc": "@pipeline().parameters.DefaultEmail",
+							"Sensitivity": "",
+							"ReplyTo": "@pipeline().parameters.DefaultEmail",
+							"Importance": "High"
+						}
+					},
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			},
+			{
+				"name": "Office 365 Starting Process",
+				"description": "Start project",
+				"type": "Office365Outlook",
+				"dependsOn": [
+					{
+						"activity": "Office 365 Initialize Process",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "sthale@microsoft.com",
+							"Subject": "Process is starting",
+							"Body": "<p>The process is starting.</p>",
+							"Sensitivity": "",
+							"Importance": "Normal"
+						}
+					},
+					"credential": {
+						"referenceName": "credential3",
+						"type": "CredentialReference"
+					}
+				}
+			},
+			{
+				"name": "Office 365 Fail Email Activity",
+				"type": "Office365Outlook",
+				"dependsOn": [
+					{
+						"activity": "Office 365 Starting Process",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "sthale-test - Azure Data Factory _ADF PG only_ <613bc527.microsoft.com@amer.teams.ms>",
+							"Subject": "This one should fail, invalid email address",
+							"Body": "<p>This should have invalid email address</p>",
+							"Sensitivity": "",
+							"Importance": "Normal"
+						}
+					},
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			},
+			{
+				"name": "Office 365 Process Failure",
+				"type": "Office365Outlook",
+				"dependsOn": [
+					{
+						"activity": "Wait1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "sthale@microsoft.com",
+							"Subject": "Process has failed",
+							"Body": "<p>Unexpected termination and failure of process.</p>",
+							"Sensitivity": "",
+							"Importance": "Normal"
+						}
+					},
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			},
+			{
+				"name": "Office 365 Process Succeeded",
+				"type": "Office365Outlook",
+				"dependsOn": [
+					{
+						"activity": "Office 365 Fail Email Activity",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "sthale@microsoft.com",
+							"Subject": "Process has completed successfully",
+							"Body": "<p>This is the end of a successful pipeline run.</p>",
+							"Sensitivity": "",
+							"Importance": "Normal"
+						}
+					},
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			},
+			{
+				"name": "Wait1",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Office 365 Fail Email Activity",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 5
+				}
+			}
+		],
+		"concurrency": 3,
+		"parameters": {
+			"DefaultEmail": {
+				"type": "string",
+				"defaultValue": "sthale@microsoft.com"
+			},
+			"DefaultSubject": {
+				"type": "string",
+				"defaultValue": "In case you actually care"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-01T22:37:44Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

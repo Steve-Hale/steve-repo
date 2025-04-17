@@ -1,12 +1,12 @@
 {
-	"name": "trigger3",
+	"name": "triggerEmail",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pipelineFailAndWait",
+					"referenceName": "pipelineMultipleEmail",
 					"type": "PipelineReference"
 				}
 			}
@@ -15,9 +15,10 @@
 		"typeProperties": {
 			"recurrence": {
 				"frequency": "Minute",
-				"interval": 15,
-				"startTime": "2023-02-27T21:11:00Z",
-				"timeZone": "UTC"
+				"interval": 1,
+				"startTime": "2023-08-30T21:36:00",
+				"endTime": "2023-09-01T22:30:00",
+				"timeZone": "Pacific Standard Time"
 			}
 		}
 	}

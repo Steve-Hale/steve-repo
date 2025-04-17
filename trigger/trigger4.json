@@ -1,5 +1,5 @@
 {
-	"name": "trigger2",
+	"name": "trigger4",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
@@ -14,7 +14,7 @@
 						"type": "SecureString",
 						"value": "**********"
 					},
-					"notapwd": "zzz"
+					"notapwd": "AString"
 				}
 			}
 		],
@@ -23,7 +23,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 15,
-				"startTime": "2023-02-27T21:07:00Z",
+				"startTime": "2023-02-27T22:05:00Z",
 				"timeZone": "UTC"
 			}
 		}

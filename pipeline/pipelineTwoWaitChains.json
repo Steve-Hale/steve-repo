@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "pipelineTwoWaitChains",
 	"properties": {
 		"activities": [
 			{
@@ -70,7 +70,7 @@
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2024-07-10T21:21:19Z"
+		"lastPublishTime": "2024-07-11T21:36:32Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

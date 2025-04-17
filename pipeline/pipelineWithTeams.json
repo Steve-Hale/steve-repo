@@ -1,0 +1,53 @@
+{
+	"name": "pipelineWithTeams",
+	"properties": {
+		"activities": [
+			{
+				"name": "Teams1",
+				"description": "This is my description2.",
+				"type": "Teams",
+				"dependsOn": [],
+				"userProperties": [
+					{
+						"name": "Prop1",
+						"value": "Val1"
+					}
+				],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/beta/teams/conversation/message/poster/User/location/"
+					},
+					"credential": {
+						"referenceName": "credential2",
+						"type": "CredentialReference"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"TeamsChannel": {
+				"type": "String",
+				"defaultValue": "sthale-test"
+			},
+			"TeamesChannel1": {
+				"type": "string",
+				"defaultValue": "sthale"
+			},
+			"TeamsChannel2": {
+				"type": "string",
+				"defaultValue": "-"
+			},
+			"TeamsChannel3": {
+				"type": "string",
+				"defaultValue": "test"
+			}
+		},
+		"annotations": [
+			"Annotation1",
+			"Annotation2"
+		],
+		"lastPublishTime": "2023-08-31T19:25:19Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

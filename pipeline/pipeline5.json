@@ -1,0 +1,47 @@
+{
+	"name": "pipeline5",
+	"properties": {
+		"activities": [
+			{
+				"name": "Office 365 Outlook1",
+				"type": "Office365Outlook",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "sthale@microsoft.com",
+							"Subject": "Nothing",
+							"Body": "<ul>\n  <li>abc</li>\n  <li>123</li>\n</ul>\n<p>This is a test.</p>\n<p>@{concat('This is the time ',utcnow())}</p>\n<p>utcnow()</p>\n<ul>\n  <li>@{concat('Current time ',utcnow())}</li>\n  <li>@{substring('MyString', 0, 3)}</li>\n  <li>Current time: utcnow()</li>\n  <li>Current time: @{concat('',utcnow())}</li>\n  <li>Replace: @{replace('This is my place', 'my', 'your')}</li>\n  <li>Contains: @{contains('My heart belongs to Steve only', 'Steve')}</li>\n  <li>Length: @{length('0123456789')}</li>\n  <li>Empty: @{empty('')}@{empty('abcd')}</li>\n  <li>Equals: @{equals(pipeline().DataFactory,'sthaleDataFactoryPE2')}@{equals(pipeline().DataFactory,'sthaleDataFactoryPE')}</li>\n  <li>Less: @{less(10, 100)}@{less(100, 10)}</li>\n  <li>LessOrEquals: @{lessOrEquals(10, 100)} @{lessOrEquals(100, 100)} @{lessOrEquals(101, 100)}</li>\n  <li>Int: @{int('124')} &nbsp;&nbsp;@{int(pipeline().parameters.NumberAsString)}</li>\n  <li>String: @{string(133)} @{string('This is already a string')}</li>\n  <li>Json: @{json('\"bar\":\"baz\"')} @{json('[1,2,3]')} </li>\n  <li>Add: @{add(1,4)}&nbsp;</li>\n  <li>Sub: @{sub(10,1)} @{sub(32769, 1)}</li>\n  <li>Mul: @{mul(2,3)} @{mul(32767, 32767)} @{mul(mul(32767,32767),mul(32767,32767))}</li>\n  <li>Utcnow:utcnow()</li>\n  <li>Addseconds: addseconds('2015-03-15T13:27:36Z', -36)&nbsp;</li>\n  <li>Addminutes: addminutes('2015-03-15T13:27:36Z', 33)</li>\n  <li>Addhours:addhours('2015-03-15T13:27:36Z', 12)</li>\n  <li>subtractFromTime:@{subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')}</li>\n  <li>Ticks: @{ticks('2015-03-15T13:27:36Z')}</li>\n  <li>Skip: </li>\n  <li>Guid: @{guid()}</li>\n  <li>ToLower, ToUpper: @{toLower(toUpper('aBCdefg'))}</li>\n  <li>Indexof: indexof(guid(),'-')</li>\n  <li>Lastindexof: lastindexof(guid(), '-')</li>\n  <li>startswith: @{startswith('abcedfg', 'abc')}</li>\n  <li>endswith: @{endswith('abcdefg', 'fg')}</li>\n  <li>split: @{split(guid(), '-')}</li>\n  <li>@{createArray(1,2,3,4)}</li>\n  <li>@{skip(createArray(1,2,3,4), 2)}</li>\n  <li></li>\n  <li></li>\n</ul>\n<p><br></p>",
+							"Sensitivity": "",
+							"Importance": "Normal"
+						}
+					},
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"DefaultEmail": {
+				"type": "string",
+				"defaultValue": "sthale@microsoft.com"
+			},
+			"DefaultSubject": {
+				"type": "string",
+				"defaultValue": "This is a subject"
+			},
+			"NumberAsString": {
+				"type": "string",
+				"defaultValue": "130"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-09-12T00:14:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

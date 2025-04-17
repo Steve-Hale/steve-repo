@@ -1,11 +1,28 @@
 {
-	"name": "pipeline1",
+	"name": "pipelineFailAndWait1",
 	"properties": {
 		"activities": [
 			{
+				"name": "Fail1",
+				"type": "Fail",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"message": "Failure message",
+					"errorCode": "E_FAIL"
+				}
+			},
+			{
 				"name": "Wait1",
 				"type": "Wait",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Fail1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": [],
 				"typeProperties": {
 					"waitTimeInSeconds": 1
@@ -16,7 +33,7 @@
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Wait1",
+						"activity": "Fail1",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -30,18 +47,9 @@
 			{
 				"name": "Wait3",
 				"type": "Wait",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"waitTimeInSeconds": 1
-				}
-			},
-			{
-				"name": "Wait4",
-				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Wait3",
+						"activity": "Fail1",
 						"dependencyConditions": [
 							"Completed"
 						]
@@ -51,26 +59,19 @@
 				"typeProperties": {
 					"waitTimeInSeconds": 1
 				}
-			},
-			{
-				"name": "Wait5",
-				"type": "Wait",
-				"dependsOn": [
-					{
-						"activity": "Wait2",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"waitTimeInSeconds": 1
-				}
 			}
 		],
+		"parameters": {
+			"sec": {
+				"type": "securestring",
+				"defaultValue": {
+					"type": "SecureString",
+					"value": "**********"
+				}
+			}
+		},
 		"annotations": [],
-		"lastPublishTime": "2024-07-10T21:21:19Z"
+		"lastPublishTime": "2023-07-07T20:57:17Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

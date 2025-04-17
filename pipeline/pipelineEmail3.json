@@ -1,0 +1,35 @@
+{
+	"name": "pipelineEmail3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Office 365 Outlook1",
+				"type": "Office365Outlook",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "sthale@microsoft.com",
+							"Subject": "To whom it may also concern",
+							"Body": "<p><span style=\"color: rgb(226,80,65)\"><strong>From pipelineEmail3</strong></span></p>\n<p><span style=\"color: rgb(97,189,109)\"><strong></strong></span><span style=\"color: rgb(97,189,109)\"><strong>@{concat(pipeline().DataFactory,'-',pipeline().Pipeline,'-',pipeline().RunId)}</strong></span><span style=\"color: rgb(97,189,109)\"></span></p>\n<p><em>This is my italics.</em></p>\n<p><span style=\"color: rgb(226,80,65)\"><strong></strong></span></p>",
+							"Sensitivity": "",
+							"Importance": "Normal"
+						}
+					},
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			}
+		],
+		"annotations": [
+			"NewAnnotation"
+		],
+		"lastPublishTime": "2023-08-31T20:07:27Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

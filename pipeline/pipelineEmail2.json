@@ -1,0 +1,33 @@
+{
+	"name": "pipelineEmail2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Office 365 Outlook1",
+				"type": "Office365Outlook",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "post",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "sthale-test - Azure Data Factory _ADF PG only_ <613bc527.microsoft.com@amer.teams.ms>",
+							"Subject": "To whom it may concern",
+							"Sensitivity": "",
+							"Importance": "Normal",
+							"Body": "<p>This is the body</p>"
+						}
+					},
+					"credential": {
+						"referenceName": "credential1",
+						"type": "CredentialReference"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-08-31T20:07:27Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

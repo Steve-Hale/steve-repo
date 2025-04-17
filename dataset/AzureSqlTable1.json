@@ -2,57 +2,72 @@
 	"name": "AzureSqlTable1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSqlDatabase1",
+			"referenceName": "AzureSqlDatabase2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
 			{
-				"name": "AddressID",
-				"type": "int",
-				"precision": 10
+				"name": "AGE",
+				"type": "bigint",
+				"precision": 19
 			},
 			{
-				"name": "AddressLine1",
-				"type": "nvarchar"
+				"name": "SEX",
+				"type": "bigint",
+				"precision": 19
 			},
 			{
-				"name": "AddressLine2",
-				"type": "nvarchar"
+				"name": "BMI",
+				"type": "float",
+				"precision": 15
 			},
 			{
-				"name": "City",
-				"type": "nvarchar"
+				"name": "BP",
+				"type": "float",
+				"precision": 15
 			},
 			{
-				"name": "StateProvinceID",
-				"type": "int",
-				"precision": 10
+				"name": "S1",
+				"type": "bigint",
+				"precision": 19
 			},
 			{
-				"name": "PostalCode",
-				"type": "nvarchar"
+				"name": "S2",
+				"type": "float",
+				"precision": 15
 			},
 			{
-				"name": "SpatialLocation",
-				"type": "geography"
+				"name": "S3",
+				"type": "float",
+				"precision": 15
 			},
 			{
-				"name": "rowguid",
-				"type": "uniqueidentifier"
+				"name": "S4",
+				"type": "float",
+				"precision": 15
 			},
 			{
-				"name": "ModifiedDate",
-				"type": "datetime",
-				"precision": 23,
-				"scale": 3
+				"name": "S5",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "S6",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "Y",
+				"type": "bigint",
+				"precision": 19
 			}
 		],
 		"typeProperties": {
-			"schema": "Person",
-			"table": "Address"
+			"schema": "dbo",
+			"table": "diabetes"
 		}
 	},
-	"type": "Microsoft.Synapse/workspaces/datasets"
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

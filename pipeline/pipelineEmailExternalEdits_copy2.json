@@ -1,0 +1,33 @@
+{
+	"name": "pipelineEmailExternalEdits_copy2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Office 365 Outlook1",
+				"type": "Office365Outlook",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"inputs": {
+						"method": "put",
+						"path": "/v2/Mail",
+						"body": {
+							"To": "sthale@microsoft.com",
+							"Subject": "Test email",
+							"Body": "<p>Here is some text body.<span style=\"font-size: 18px\"><u><em><strong>LinkFromEmailActivity</strong></em></u></span><span style=\"font-size: 18px\"><u>&nbsp;</u></span></p>\n<p><br></p>\n<p><span style=\"font-size: 18px\">😀🤗😛</span><span style=\"color: rgb(97, 189, 109)\">Here is some green text.</span></p>\n<ul>\n  <li><span style=\"color: rgb(97, 189, 109)\">A list</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n    <ul>\n      <li><span style=\"color: rgb(97, 189, 109)\">A list2</span></li>\n      <li><span style=\"color: rgb(97, 189, 109)\">A list3</span></li>\n    </ul>\n  </li>\n  <li><span style=\"color: rgb(235, 107, 86)\">The quick brown fox jumped over the lazy dog. &nbsp;This is a test of the emergency broadcast system. &nbsp;This is only a test. &nbsp;If this had been a real emergency you would have been given information on where to tune for news and official information.</span></li>\n  <li><span style=\"color: rgb(235, 107, 86)\">I want to indent this but cannot?</span></li>\n  <li><span style=\"color: rgb(235, 107, 86)\">This is a test of indenting with tabs.</span></li>\n</ul>\n<p><span style=\"color: rgb(235, 107, 86)\">\tHere is the first indented line.</span></p>\n<p><span style=\"color: rgb(235, 107, 86)\">\tHere is another indented line.</span></p>\n<p><span style=\"color: rgb(235, 107, 86)\">And here is an outdented line.</span></p>\n<p><br></p>\n<figure><img src=\"https://www.theproscloset.com/cdn/shop/files/BRD33208_PH_1_3000x2000.jpg?v=1692890859\" height=\"200px\" width=\"300px\"/></figure>\n<p>Insert some text after picture.</p>\n<ol>\n  <li>@{pipeline().DataFactory}</li>\n  <li><span style=\"color: rgb(247, 218, 100)\"></span><span style=\"color: rgb(247, 218, 100)\">@{pipeline().RunId}</span><span style=\"color: rgb(247, 218, 100)\"></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n    <ol>\n      <li>I don't want this to @{pipeline().Pipeline}@{pipeline().RunId}</li>\n      <li>@{pipeline().Pipeline}</li>\n    </ol>\n  </li>\n</ol>\n<p><span style=\"font-size: 96px\">My name is Ozymandias!</span></p>\n<p><span style=\"font-size: 8px\">22sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf</span></p>\n<p><br></p>\n<p><span style=\"font-size: 8px\">1</span></p>\n<p><span style=\"font-size: abcd\">1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111000000000000000</span></p>\n<p><br></p>\n<p><br></p>",
+							"Sensitivity": "",
+							"Importance": "Normal"
+						}
+					},
+					"credential": {
+						"referenceName": "credential3",
+						"type": "CredentialReference"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-09-01T23:26:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

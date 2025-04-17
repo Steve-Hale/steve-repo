@@ -1,0 +1,12 @@
+{
+	"name": "SthaleTestStorage",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"serviceEndpoint": "https://sthaleteststorage.z15.blob.storage.azure.net/",
+			"accountKind": "StorageV2"
+		}
+	}
+}
