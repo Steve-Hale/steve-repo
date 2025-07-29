@@ -1,0 +1,9 @@
+{
+	"name": "sthaleWUS3",
+	"location": "westus3",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4be7a3ed-ac17-4d86-b1d5-d8c792cab382",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+	}
+}
