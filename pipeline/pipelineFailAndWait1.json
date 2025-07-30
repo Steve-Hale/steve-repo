@@ -63,11 +63,8 @@
 		],
 		"parameters": {
 			"sec": {
-				"type": "securestring",
-				"defaultValue": {
-					"type": "SecureString",
-					"value": "**********"
-				}
+				"type": "string",
+				"defaultValue": "aaaaa"
 			}
 		},
 		"annotations": [],
