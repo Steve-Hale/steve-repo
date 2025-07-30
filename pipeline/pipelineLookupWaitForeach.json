@@ -78,11 +78,8 @@
 		],
 		"parameters": {
 			"pwd": {
-				"type": "securestring",
-				"defaultValue": {
-					"type": "SecureString",
-					"value": "**********"
-				}
+				"type": "string",
+				"defaultValue": "aaaa"
 			},
 			"notapwd": {
 				"type": "string",
