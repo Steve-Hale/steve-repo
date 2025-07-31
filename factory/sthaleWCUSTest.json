@@ -2,8 +2,14 @@
 	"name": "sthaleWCUSTest",
 	"location": "westcentralus",
 	"identity": {
-		"type": "SystemAssigned",
-		"principalId": "5866dacc-0b4a-44ea-905d-cd341ae84ad1",
-		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+		"type": "SystemAssigned,UserAssigned",
+		"principalId": "e280436c-3d93-454e-b8f6-b0740d9118d6",
+		"tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+		"userAssignedIdentities": {
+			"/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/sthale/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sthale-uami": {
+				"clientId": "751dd85a-2b04-4205-996f-0fca397c8ef0",
+				"principalId": "532f8f0e-6516-44c5-ba19-f2cf97d3a6ed"
+			}
+		}
 	}
 }

@@ -6,8 +6,15 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pipelineFailAndWait",
+					"referenceName": "pipeline1",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"myName": "steve",
+					"pwd": {
+						"type": "SecureString",
+						"value": "**********"
+					}
 				}
 			}
 		],
@@ -16,7 +23,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 15,
-				"startTime": "2023-02-27T21:11:00Z",
+				"startTime": "2023-03-01T00:17:00Z",
 				"timeZone": "UTC"
 			}
 		}

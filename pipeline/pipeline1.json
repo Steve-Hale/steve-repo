@@ -10,67 +10,22 @@
 				"typeProperties": {
 					"waitTimeInSeconds": 1
 				}
-			},
-			{
-				"name": "Wait2",
-				"type": "Wait",
-				"dependsOn": [
-					{
-						"activity": "Wait1",
-						"dependencyConditions": [
-							"Failed"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"waitTimeInSeconds": 1
-				}
-			},
-			{
-				"name": "Wait3",
-				"type": "Wait",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"waitTimeInSeconds": 1
-				}
-			},
-			{
-				"name": "Wait4",
-				"type": "Wait",
-				"dependsOn": [
-					{
-						"activity": "Wait3",
-						"dependencyConditions": [
-							"Completed"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"waitTimeInSeconds": 1
-				}
-			},
-			{
-				"name": "Wait5",
-				"type": "Wait",
-				"dependsOn": [
-					{
-						"activity": "Wait2",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"waitTimeInSeconds": 1
-				}
 			}
 		],
-		"annotations": [],
-		"lastPublishTime": "2024-07-10T21:21:19Z"
+		"parameters": {
+			"myName": {
+				"type": "string",
+				"defaultValue": "myValue"
+			},
+			"pwd": {
+				"type": "securestring"
+			}
+		},
+		"annotations": [
+			"pipeline1 annotation1",
+			"pipeline1 annotation1"
+		],
+		"lastPublishTime": "2023-02-27T23:16:29Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }

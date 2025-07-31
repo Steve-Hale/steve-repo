@@ -6,15 +6,15 @@
 		"pipelines": [
 			{
 				"pipelineReference": {
-					"referenceName": "pipelineLookupWaitForeach",
+					"referenceName": "pipeline1",
 					"type": "PipelineReference"
 				},
 				"parameters": {
+					"myName": "abc",
 					"pwd": {
 						"type": "SecureString",
 						"value": "**********"
-					},
-					"notapwd": "zzz"
+					}
 				}
 			}
 		],
@@ -23,7 +23,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 15,
-				"startTime": "2023-02-27T21:07:00Z",
+				"startTime": "2023-02-27T23:12:00Z",
 				"timeZone": "UTC"
 			}
 		}
