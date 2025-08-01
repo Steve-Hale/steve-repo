@@ -37,12 +37,6 @@
 						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference"
 					}
-				],
-				"outputs": [
-					{
-						"referenceName": "SqlPoolTable1",
-						"type": "DatasetReference"
-					}
 				]
 			}
 		],
