@@ -7,13 +7,47 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "sthaleWCUSTest"
 		},
-		"AzureBlobStorage1_connectionString": {
+		"AzureBlobStorage2_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sthale.database.windows.net;Initial Catalog=sthaleDb"
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase2'"
+		},
+		"AzureSqlDatabaseAdventureWorks2017_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabaseAdventureWorks2017'"
 		},
 		"FileServer1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FileServer1'"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureSqlDatabase3_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase3'"
+		},
+		"SqlServer1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SqlServer1'"
+		},
+		"sthalesynapse3-WorkspaceDefaultSqlServer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'sthalesynapse3-WorkspaceDefaultSqlServer'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:sthalesynapse3.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sthaledatalakestorage.z26.dfs.storage.azure.net/"
 		},
 		"FileServer1_properties_typeProperties_host": {
 			"type": "string",
@@ -22,6 +56,10 @@
 		"FileServer1_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "redmond\\sthale"
+		},
+		"SthaleTestStorage_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://sthaleteststorage.z15.blob.storage.azure.net/"
 		},
 		"CSVBlobCreated_properties_typeProperties_scope": {
 			"type": "string",
@@ -34,6 +72,14 @@
 		"XLSXBlobCreated_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
+		},
+		"integrationRuntime3_properties_typeProperties_linkedInfo_resourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/sthale/providers/Microsoft.DataFactory/factories/sthaleWCUSTest/integrationruntimes/integrationRuntime1"
+		},
+		"sthalesynapse3-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sthaledatalakestorage.dfs.core.windows.net"
 		},
 		"trigger1_properties_pipeline1_parameters_myName": {
 			"type": "string",
@@ -59,6 +105,22 @@
 			"type": "string",
 			"defaultValue": "**********"
 		},
+		"trigger4_properties_pipelineLookupWaitForeach_parameters_pwd": {
+			"type": "string",
+			"defaultValue": "**********"
+		},
+		"trigger4_properties_pipelineLookupWaitForeach_parameters_notapwd": {
+			"type": "string",
+			"defaultValue": "AString"
+		},
+		"trigger5_properties_pipelineLookupWaitForeach_parameters_pwd": {
+			"type": "string",
+			"defaultValue": "**********"
+		},
+		"trigger5_properties_pipelineLookupWaitForeach_parameters_notapwd": {
+			"type": "string",
+			"defaultValue": "bbb"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -75,7 +137,7 @@
 		{
 			"name": "sthaleWCUSTest_ArmTemplate_0",
 			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "2018-02-01",
+			"apiVersion": "2024-03-01",
 			"properties": {
 				"mode": "incremental",
 				"templateLink": {
@@ -85,12 +147,42 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "sthaleWCUSTest_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage2_connectionString": {
+						"value": "[parameters('AzureBlobStorage2_connectionString')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"AzureSqlDatabase2_connectionString": {
+						"value": "[parameters('AzureSqlDatabase2_connectionString')]"
+					},
+					"AzureSqlDatabaseAdventureWorks2017_connectionString": {
+						"value": "[parameters('AzureSqlDatabaseAdventureWorks2017_connectionString')]"
 					},
 					"FileServer1_password": {
 						"value": "[parameters('FileServer1_password')]"
 					},
-					"AzureBlobStorage1_connectionString": {
-						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					},
 					"FileServer1_properties_typeProperties_host": {
 						"value": "[parameters('FileServer1_properties_typeProperties_host')]"
@@ -98,14 +190,75 @@
 					"FileServer1_properties_typeProperties_userId": {
 						"value": "[parameters('FileServer1_properties_typeProperties_userId')]"
 					},
+					"SthaleTestStorage_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('SthaleTestStorage_properties_typeProperties_serviceEndpoint')]"
+					},
 					"CSVBlobCreated_properties_typeProperties_scope": {
 						"value": "[parameters('CSVBlobCreated_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'sthaleWCUSTest_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "sthaleWCUSTest_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureSqlDatabase3_connectionString": {
+						"value": "[parameters('AzureSqlDatabase3_connectionString')]"
+					},
+					"SqlServer1_connectionString": {
+						"value": "[parameters('SqlServer1_connectionString')]"
 					},
 					"XLSBlobCreated_properties_typeProperties_scope": {
 						"value": "[parameters('XLSBlobCreated_properties_typeProperties_scope')]"
 					},
 					"XLSXBlobCreated_properties_typeProperties_scope": {
 						"value": "[parameters('XLSXBlobCreated_properties_typeProperties_scope')]"
+					},
+					"integrationRuntime3_properties_typeProperties_linkedInfo_resourceId": {
+						"value": "[parameters('integrationRuntime3_properties_typeProperties_linkedInfo_resourceId')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'sthaleWCUSTest_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "sthaleWCUSTest_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"sthalesynapse3-WorkspaceDefaultSqlServer_connectionString": {
+						"value": "[parameters('sthalesynapse3-WorkspaceDefaultSqlServer_connectionString')]"
+					},
+					"sthalesynapse3-WorkspaceDefaultStorage_properties_typeProperties_url": {
+						"value": "[parameters('sthalesynapse3-WorkspaceDefaultStorage_properties_typeProperties_url')]"
 					},
 					"trigger1_properties_pipeline1_parameters_myName": {
 						"value": "[parameters('trigger1_properties_pipeline1_parameters_myName')]"
@@ -127,7 +280,41 @@
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'sthaleWCUSTest_ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "sthaleWCUSTest_ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"trigger4_properties_pipelineLookupWaitForeach_parameters_pwd": {
+						"value": "[parameters('trigger4_properties_pipelineLookupWaitForeach_parameters_pwd')]"
+					},
+					"trigger4_properties_pipelineLookupWaitForeach_parameters_notapwd": {
+						"value": "[parameters('trigger4_properties_pipelineLookupWaitForeach_parameters_notapwd')]"
+					},
+					"trigger5_properties_pipelineLookupWaitForeach_parameters_pwd": {
+						"value": "[parameters('trigger5_properties_pipelineLookupWaitForeach_parameters_pwd')]"
+					},
+					"trigger5_properties_pipelineLookupWaitForeach_parameters_notapwd": {
+						"value": "[parameters('trigger5_properties_pipelineLookupWaitForeach_parameters_notapwd')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'sthaleWCUSTest_ArmTemplate_3')]"
+			]
 		}
 	]
 }

@@ -5,17 +5,44 @@
 		"factoryName": {
 			"value": "sthaleWCUSTest"
 		},
-		"AzureBlobStorage1_connectionString": {
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=sthale.database.windows.net;Initial Catalog=sthaleDb"
+		},
+		"AzureSqlDatabase2_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabaseAdventureWorks2017_connectionString": {
 			"value": ""
 		},
 		"FileServer1_password": {
 			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase3_connectionString": {
+			"value": ""
+		},
+		"SqlServer1_connectionString": {
+			"value": ""
+		},
+		"sthalesynapse3-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:sthalesynapse3.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://sthaledatalakestorage.z26.dfs.storage.azure.net/"
 		},
 		"FileServer1_properties_typeProperties_host": {
 			"value": "\\\\sthale01.redmond.corp.microsoft.com\\c$"
 		},
 		"FileServer1_properties_typeProperties_userId": {
 			"value": "redmond\\sthale"
+		},
+		"SthaleTestStorage_properties_typeProperties_serviceEndpoint": {
+			"value": "https://sthaleteststorage.z15.blob.storage.azure.net/"
 		},
 		"CSVBlobCreated_properties_typeProperties_scope": {
 			"value": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
@@ -25,6 +52,12 @@
 		},
 		"XLSXBlobCreated_properties_typeProperties_scope": {
 			"value": "/subscriptions/2f33c621-0d70-417c-a0a4-2ebd053647fe/resourceGroups/AzureDnsPpe/providers/Microsoft.Storage/storageAccounts/sthaleparttest"
+		},
+		"integrationRuntime3_properties_typeProperties_linkedInfo_resourceId": {
+			"value": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/sthale/providers/Microsoft.DataFactory/factories/sthaleWCUSTest/integrationruntimes/integrationRuntime1"
+		},
+		"sthalesynapse3-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://sthaledatalakestorage.dfs.core.windows.net"
 		},
 		"trigger1_properties_pipeline1_parameters_myName": {
 			"value": "abc"
@@ -43,6 +76,18 @@
 		},
 		"trigger3_properties_pipeline1_parameters_pwd": {
 			"value": "**********"
+		},
+		"trigger4_properties_pipelineLookupWaitForeach_parameters_pwd": {
+			"value": "**********"
+		},
+		"trigger4_properties_pipelineLookupWaitForeach_parameters_notapwd": {
+			"value": "AString"
+		},
+		"trigger5_properties_pipelineLookupWaitForeach_parameters_pwd": {
+			"value": "**********"
+		},
+		"trigger5_properties_pipelineLookupWaitForeach_parameters_notapwd": {
+			"value": "bbb"
 		},
 		"containerUri": {
 			"value": ""
