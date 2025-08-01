@@ -2,7 +2,8 @@
 	"name": "sthaleWCUSTest",
 	"properties": {
 		"globalConfigurations": {
-			"PipelineBillingEnabled": "true"
+			"PipelineBillingEnabled": "true",
+			"CICDEnvironment": "development"
 		}
 	},
 	"location": "westcentralus",
